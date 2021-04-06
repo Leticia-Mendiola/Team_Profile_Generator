@@ -1,5 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Inter = require('./lib/Intern');
 
 const promptUser = () =>
   inquirer.prompt([
@@ -77,6 +81,13 @@ const generateHTML = (answers) =>
 
 const init = () => {
   promptUser().then((answers) => {
+    if (answers.role === "Manager") {
+      promptManager()
+    } else if (answers.role === "Engineer") {
+      promptEngineer()
+    } else if (answers.role === "Intern") {
+      promptIntern()
+    }
     try {
       const html = generateHTML(answers);
       fs.writeFileSync('index.html', html);
