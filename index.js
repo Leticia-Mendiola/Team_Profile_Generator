@@ -75,54 +75,47 @@ const generateHTML = (answers) =>
   <title>Team Roster</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
+<div class="row">
+<div class="col s12 m6">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">${answers.name}</span>
+      <p>I am a very simple card. I am good at containing small bits of information.
+      I am convenient because I require little markup to use effectively.</p>
+    </div>
+    <div class="card-action">
+      <a href="#">This is a link</a>
+      <a href="#">This is a link</a>
+    </div>
   </div>
+</div>
 </div>
 </body>
 </html>`;
 
 const init = () => {
   promptUser().then((answers) => {
+    
     if (answers.role === "Manager") {
       promptManager().then((answers) => {
-        try {
-          const html = generateHTML(answers);
-          fs.writeFileSync('index.html', html);
-          console.log('Successfully wrote to index.html');
-        } catch (error) {
-          console.log(error);
-        }
+        
       })
     } else if (answers.role === "Engineer") {
       promptEngineer().then((answers) => {
-        try {
-          const html = generateHTML(answers);
-          fs.writeFileSync('index.html', html);
-          console.log('Successfully wrote to index.html');
-        } catch (error) {
-          console.log(error);
-        }
+        
       })
     } else if (answers.role === "Intern") {
       promptIntern().then((answers) => {
-        try {
-          const html = generateHTML(answers);
-          fs.writeFileSync('index.html', html);
-          console.log('Successfully wrote to index.html');
-        } catch (error) {
-          console.log(error);
-        }
+        
       })
     }
   });
 };
-
+try {
+  const html = generateHTML(answers);
+  fs.writeFileSync('./dist/index.html', html);
+  console.log('Successfully wrote to index.html');
+} catch (error) {
+  console.log(error);
+}
 init();
