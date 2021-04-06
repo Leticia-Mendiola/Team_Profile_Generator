@@ -54,10 +54,10 @@ const promptIntern = () =>
     },
 ]);
 
-Employee (answers.name,answers.id,answers.email)
-Manager (answers.officenumber)
-Engineer (answers.github)
-Intern (answers.school)
+const employee = new Employee (answers.name,answers.id,answers.email)
+const manager = new Manager (answers.officenumber)
+const engineer = new Engineer (answers.github)
+const intern = new Intern (answers.school)
 
 
 const generateHTML = (answers) =>
