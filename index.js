@@ -25,17 +25,40 @@ const promptUser = () =>
       choices: ['Manager', 'Engineer', 'Intern'],
     },
 ]);
-
-
+const promptManager = () =>
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'office',
+      message: 'Office Number:',
+    },
+]);
+const promptEngineer = () =>
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'github',
+      message: 'GitHub URL:',
+    },
+]);
+const promptIntern = () =>
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'school',
+      message: 'School:',
+    },
+]);
 
 const generateHTML = (answers) =>
-  `<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Team Roster</title>
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
