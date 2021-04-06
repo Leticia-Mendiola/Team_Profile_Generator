@@ -3,7 +3,7 @@ const fs = require('fs');
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const Inter = require('./lib/Intern');
+const Intern = require('./lib/Intern');
 
 const promptUser = () =>
   inquirer.prompt([
@@ -53,6 +53,12 @@ const promptIntern = () =>
       message: 'School:',
     },
 ]);
+
+Employee (answers.name,answers.id,answers.email)
+Manager (answers.officenumber)
+Engineer (answers.github)
+Intern (answers.school)
+
 
 const generateHTML = (answers) =>
 `<!DOCTYPE html>
@@ -112,7 +118,6 @@ const init = () => {
         }
       })
     }
-    
   });
 };
 
