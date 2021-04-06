@@ -92,26 +92,26 @@ const generateHTML = (answers) =>
 const init = () => {
   promptUser().then((answers) => {
     const employee = new Employee (answers.name,answers.id,answers.email)
-    getName();
-    getId();
-    getEmail();
+    employee.getName();
+    employee.getId();
+    employee.getEmail();
     if (answers.role === "Manager") {
       promptManager().then((answers) => {
         const manager = new Manager (answers.officenumber)
-        getOfficeNumber();
-        getRole();
+        manager.getOfficeNumber();
+        manager.getRole();
       })
     } else if (answers.role === "Engineer") {
       promptEngineer().then((answers) => {
         const engineer = new Engineer (answers.github)
-        getGithub();
-        getRole();
+        engineer.getGithub();
+        engineer.getRole();
       })
     } else if (answers.role === "Intern") {
       promptIntern().then((answers) => {
         const intern = new Intern (answers.school)
-        getSchool();
-        getRole();
+        intern.getSchool();
+        intern.getRole();
       })
     }
   });
