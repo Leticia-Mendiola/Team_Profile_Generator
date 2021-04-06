@@ -6,34 +6,27 @@ const promptUser = () =>
     {
       type: 'input',
       name: 'name',
-      message: 'What is your name?',
+      message: 'Employee Name:',
     },
     {
       type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+      name: 'id',
+      message: 'Employee ID:',
     },
     {
       type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      name: 'email',
+      message: 'Employee Email:',
     },
     {
-      type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
+      type: 'list',
+      name: 'role',
+      message: 'Employee Position/Role:',
+      choices: ['Manager', 'Engineer', 'Intern'],
     },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
-    },
-    {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
-    },
-  ]);
+]);
+
+
 
 const generateHTML = (answers) =>
   `<!DOCTYPE html>
