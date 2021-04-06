@@ -54,15 +54,11 @@ const promptIntern = () =>
     },
 ]);
 
-const employee = new Employee (answers.name,answers.id,answers.email)
-const manager = new Manager (answers.officenumber)
-const engineer = new Engineer (answers.github)
-const intern = new Intern (answers.school)
-getName();
-getId();
-getEmail();
-getRole();
-getOfficeNumber();
+
+
+
+
+
 
 const generateHTML = (answers) =>
 `<!DOCTYPE html>
@@ -95,27 +91,36 @@ const generateHTML = (answers) =>
 
 const init = () => {
   promptUser().then((answers) => {
-    
+    const employee = new Employee (answers.name,answers.id,answers.email)
+    getName();
+    getId();
+    getEmail();
     if (answers.role === "Manager") {
       promptManager().then((answers) => {
-        
+        const manager = new Manager (answers.officenumber)
+        getOfficeNumber();
+        getRole();
       })
     } else if (answers.role === "Engineer") {
       promptEngineer().then((answers) => {
-        
+        const engineer = new Engineer (answers.github)
+        getGithub();
+        getRole();
       })
     } else if (answers.role === "Intern") {
       promptIntern().then((answers) => {
-        
+        const intern = new Intern (answers.school)
+        getSchool();
+        getRole();
       })
     }
   });
 };
-try {
-  const html = generateHTML(answers);
-  fs.writeFileSync('./dist/index.html', html);
-  console.log('Successfully wrote to index.html');
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   const html = generateHTML(answers);
+//   fs.writeFileSync('./dist/index.html', html);
+//   console.log('Successfully wrote to index.html');
+// } catch (error) {
+//   console.log(error);
+// }
 init();
