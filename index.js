@@ -58,7 +58,11 @@ const employee = new Employee (answers.name,answers.id,answers.email)
 const manager = new Manager (answers.officenumber)
 const engineer = new Engineer (answers.github)
 const intern = new Intern (answers.school)
-
+getName();
+getId();
+getEmail();
+getRole();
+getOfficeNumber();
 
 const generateHTML = (answers) =>
 `<!DOCTYPE html>
