@@ -72,16 +72,14 @@ const generateHTML = (answers) =>
 </head>
 <body>
 <div class="row">
-<div class="col s12 m6">
-  <div class="card blue-grey darken-1">
+<div class="col m4">
+  <div class="card">
     <div class="card-content white-text">
-      <span class="card-title">${answers.name}</span>
-      <p>I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively.</p>
-    </div>
-    <div class="card-action">
-      <a href="#">This is a link</a>
-      <a href="#">This is a link</a>
+      <span class="card-title">${employee.getName()}</span>
+      <h5 class="row">${manager.getRole(),engineer.getRole(),inter.getRole()}<h5>
+      <p class="row">${employee.getId()}</p>
+      <p class="row">${employee.getEmail()}</p>
+      <p class="row">${manager.getOfficeNumber(),engineer.getGithub(),intern.getSchool()}</p>
     </div>
   </div>
 </div>
@@ -92,9 +90,7 @@ const generateHTML = (answers) =>
 const init = () => {
   promptUser().then((answers) => {
     const employee = new Employee (answers.name,answers.id,answers.email)
-    employee.getName();
-    employee.getId();
-    employee.getEmail();
+    console.log("Employee Info Recorded Successfully:")
     if (answers.role === "Manager") {
       promptManager().then((answers) => {
         const manager = new Manager (answers.officenumber)
