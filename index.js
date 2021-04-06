@@ -82,19 +82,37 @@ const generateHTML = (answers) =>
 const init = () => {
   promptUser().then((answers) => {
     if (answers.role === "Manager") {
-      promptManager()
+      promptManager().then((answers) => {
+        try {
+          const html = generateHTML(answers);
+          fs.writeFileSync('index.html', html);
+          console.log('Successfully wrote to index.html');
+        } catch (error) {
+          console.log(error);
+        }
+      })
     } else if (answers.role === "Engineer") {
-      promptEngineer()
+      promptEngineer().then((answers) => {
+        try {
+          const html = generateHTML(answers);
+          fs.writeFileSync('index.html', html);
+          console.log('Successfully wrote to index.html');
+        } catch (error) {
+          console.log(error);
+        }
+      })
     } else if (answers.role === "Intern") {
-      promptIntern()
+      promptIntern().then((answers) => {
+        try {
+          const html = generateHTML(answers);
+          fs.writeFileSync('index.html', html);
+          console.log('Successfully wrote to index.html');
+        } catch (error) {
+          console.log(error);
+        }
+      })
     }
-    try {
-      const html = generateHTML(answers);
-      fs.writeFileSync('index.html', html);
-      console.log('Successfully wrote to index.html');
-    } catch (error) {
-      console.log(error);
-    }
+    
   });
 };
 
